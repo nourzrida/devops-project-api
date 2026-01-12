@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-api-deployment
+spec:
+  replicas: 1 # On veut 1 seul exemplaire (pod) de l'application
+  selector:
+    matchLabels:
+      app: devops-api
+  template:
+    metadata:
+      labels:
+        app: devops-api
+    spec:
+      containers:
+        - name: devops-api
+          # 👇 REMPLACE 'TON_PSEUDO' PAR TON NOM DOCKER HUB ICI 👇
+          image: nourzrida/devops-api:v1
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
