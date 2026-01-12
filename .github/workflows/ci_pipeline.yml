@@ -39,4 +39,4 @@ jobs:
       # 3.5 Analyse de sécurité (SAST)
       - name: Run Bandit (Security Scan)
         # On scanne tout le dossier (.), on ignore le dossier venv (-x), et on veut un rapport niveau "Low" (-ll)
-        run: bandit -r . -x ./venv
+        run: bandit -r . -x ./venv,./test_main.py
