@@ -36,3 +36,7 @@ jobs:
       # 5. Vérifier que Docker arrive à construire l'image
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      # 3.5 Analyse de sécurité (SAST)
+      - name: Run Bandit (Security Scan)
+        # On scanne tout le dossier (.), on ignore le dossier venv (-x), et on veut un rapport niveau "Low" (-ll)
+        run: bandit -r . -x ./venv

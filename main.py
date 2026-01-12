@@ -1,7 +1,7 @@
 import logging
 import time
 import uuid
-import random
+import secrets
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from prometheus_fastapi_instrumentator import Instrumentator
@@ -53,7 +53,7 @@ def get_quotes():
 
 @app.get("/quotes/random")
 def get_random_quote():
-    return random.choice(quotes)
+    return secrets.choice(quotes)
 
 @app.post("/quotes", status_code=201)
 def create_quote(quote: Quote):
