@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 # --- Initialisation de l'app ---
 app = FastAPI(title="DevOps Project API")
-
+# TODO: Realiser des taches 
 # --- Observabilité : Métriques ---
 Instrumentator().instrument(app).expose(app)
 
